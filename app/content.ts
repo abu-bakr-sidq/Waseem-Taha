@@ -469,7 +469,9 @@ export const contact = {
   email: "waseemtahaone@gmail.com",
   phone: "+91 95511 78235",
   phoneHref: "tel:+919551178235",
-  whatsapp: "https://wa.me/qr/BEWHMJVAY4V2H1",
+  // Click-to-chat by number opens WhatsApp Desktop/Web on computers and the app on phones. The wa.me/qr link
+  // only opens inside the phone app, so it is used for the QR code alone (whatsapp-qr-data.ts).
+  whatsapp: `https://wa.me/919551178235?text=${encodeURIComponent("Hi Waseem, I saw your portfolio and would like to get in touch.")}`,
   instagram: "https://www.instagram.com/waseem_.taha/",
   instagramHandle: "@waseem_.taha",
   location: "Perambur, Chennai, India",
