@@ -29,7 +29,7 @@ app/
                         cap journey, tool canvas, AI board, EV app screens, section dock
   work/                 Case-study pages (EV charge finder, fitness app study)
 public/
-  images/brand/         Signature logo layers (stroke mask + cap)
+  images/brand/         Signature logo layers (stroke mask + cap) and the link-preview card (1200x630)
   images/hero|about|contact/   Section photography and the watch/cap cut-outs
   images/tools|ai/      Neon tool cubes and AI emblems
   images/work/<project>/       Portfolio pieces, one folder per project (01.jpg, 02.jpg, …)

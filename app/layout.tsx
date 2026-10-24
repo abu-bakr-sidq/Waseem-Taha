@@ -9,8 +9,9 @@ export const metadata: Metadata = {
     title: "Waseem Taha — Portfolio",
     description: "Case studies, visual systems, and digital experiences.",
     type: "website",
-    images: [{ url: "/images/hero/waseem-taha.png", width: 1536, height: 1024, alt: "Waseem Taha portfolio" }],
+    images: [{ url: "/images/brand/link-preview.jpg", width: 1200, height: 630, alt: "Waseem Taha — Brand & Creative Designer" }],
   },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
