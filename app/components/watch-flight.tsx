@@ -73,10 +73,11 @@ export function WatchFlight({ children }: { children: React.ReactNode }) {
     f.style.filter = `drop-shadow(0 ${lerp(3, 36, lift).toFixed(1)}px ${lerp(4, 42, lift).toFixed(1)}px rgba(0,0,0,${(0.3 + 0.3 * lift).toFixed(2)}))`;
     const flip = smooth(0.5, 0.82, p) * 180;
     c.style.transform = `rotateZ(${(-12 * lift).toFixed(2)}deg) rotateY(${flip.toFixed(2)}deg)`;
+    // One watch the whole way: it leaves the wrist graded like the photo, brightens as it lifts, and only becomes the
+    // front view while the card is edge-on, so two watches never show at once.
     const handoff = smooth(0.05, 0.2, p);
-    const [faceWrist, faceTilt, faceFront] = faces.current;
-    if (faceWrist) { faceWrist.style.opacity = String(1 - handoff); faceWrist.style.filter = `contrast(1.08) saturate(.91) brightness(${lerp(0.9, 1, handoff).toFixed(3)})`; }
-    if (faceTilt) faceTilt.style.opacity = String(handoff * smooth(90, 78, flip));
+    const [faceWrist, faceFront] = faces.current;
+    if (faceWrist) { faceWrist.style.opacity = String(smooth(90, 78, flip)); faceWrist.style.filter = `contrast(1.08) saturate(.91) brightness(${lerp(0.9, 1, handoff).toFixed(3)})`; }
     if (faceFront) faceFront.style.opacity = String(smooth(90, 102, flip));
 
     const fade = smooth(0, 0.06, p) * smooth(1, 0.9, p);
@@ -117,19 +118,19 @@ export function WatchFlight({ children }: { children: React.ReactNode }) {
     <p ref={tag} className={`flight-tag${flying ? " is-on" : ""}`} aria-hidden="true"><i />Smart animate<span>Hero → About</span></p>
     <div ref={flyer} className={`watch-flyer${flying ? " is-on" : ""}`} aria-hidden="true">
       <div ref={card} className="watch-card">
-        <div className="watch-face is-wrist" ref={(el) => { faces.current[0] = el; }}><Image src="/images/about/watch-wrist.png" alt="" fill sizes="20vw" /></div>
-        <div className="watch-face is-tilt" ref={(el) => { faces.current[1] = el; }}><Image src="/images/about/watch-tilt.png" alt="" fill sizes="30vw" /></div>
-        <div className="watch-face is-front" ref={(el) => { faces.current[2] = el; }}><Image src="/images/about/watch-front.png" alt="" fill sizes="30vw" /></div>
+        <div className="watch-face is-wrist" ref={(el) => { faces.current[0] = el; }}><Image src="/images/hero/hero-watch.png" alt="" fill sizes="20vw" /></div>
+        <div className="watch-face is-front" ref={(el) => { faces.current[1] = el; }}><Image src="/images/about/watch-front.png" alt="" fill sizes="30vw" /></div>
       </div>
     </div>
   </WatchContext.Provider>;
 }
 
-/* Sits inside the hero photo canvas, exactly over the wrist it was cut from. */
+/* Sits inside the hero photo canvas, fitted over the wrist where the watch was photographed. The flyer starts from
+   this same box with the same image, so the handoff is seamless. */
 export function HeroWatch() {
   const { hero, phase } = useWatch();
   return <div ref={hero} className={`hero-watch${phase === "start" || phase === "static" ? "" : " is-gone"}`} aria-hidden="true">
-    <Image src="/images/about/watch-wrist.png" alt="" fill priority sizes="12vw" />
+    <Image src="/images/hero/hero-watch.png" alt="" fill priority sizes="(max-width: 760px) 26vw, 11vw" />
   </div>;
 }
 

@@ -53,10 +53,15 @@ body{font-family:Archivo,Arial,sans-serif}h1,h2,h3,.logo{font-family:Archivo,Ari
 .portrait-media{position:absolute;z-index:1;inset:0;overflow:hidden;will-change:clip-path}.portrait-image{position:absolute;inset:-1px;will-change:transform}.portrait-image img{object-fit:cover;object-position:65% center;filter:contrast(1.08) saturate(.91)}.portrait-wipe{position:absolute;z-index:5;inset:0;transform-origin:right center;background:linear-gradient(90deg,#ff3947 0%,#ae1824 38%,#1d0b0d 77%,#0b0909 100%);will-change:transform}.portrait-guides{position:absolute;z-index:6;inset:0;pointer-events:none}.portrait-guides i{position:absolute;display:block;background:rgba(247,239,232,.6)}.portrait-guides i:first-child{top:18%;left:10%;width:1px;height:58%;background:linear-gradient(transparent,rgba(247,239,232,.62),transparent)}.portrait-guides i:nth-child(2){top:50%;left:6%;width:47%;height:1px;background:linear-gradient(90deg,transparent,rgba(247,239,232,.62),transparent)}.portrait-guides span{position:absolute;left:10%;bottom:12%;color:#eee8e3;font:8px 'IBM Plex Mono',monospace;letter-spacing:1.1px;writing-mode:vertical-rl;transform:rotate(180deg)}
 @media(prefers-reduced-motion:reduce){.portrait-media{clip-path:inset(0)!important}.portrait-image,.portrait-wipe{transform:none!important}.portrait-wipe{display:none}.portrait-guides{opacity:1!important}}
 
-/* Hero photo canvas: the photo keeps its 3:2 frame (cover, 65% across), so the watch sits on the wrist in image coordinates. */
+/* Hero photo canvas: the photo's own 1299:1211 shape, so the watch sits on the wrist in image coordinates. Like a bust it
+   stands on the panel's bottom edge with headroom above the hair, and keeps its near arm clear of the "01 / FRAME" guide
+   and corner bracket (losing at most 8% of the far arm instead). Narrow panels anchor it on the watch, which stays in frame
+   with the face clear of the handwriting. */
 .portrait-image{container-type:size}
-.portrait-canvas{position:absolute;--cw:max(100cqw,150cqh);left:calc((100cqw - var(--cw)) * .65);top:calc((100cqh - var(--cw) / 1.5) * .5);width:var(--cw);height:calc(var(--cw) / 1.5)}
-.hero-watch{position:absolute;z-index:2;left:61.654%;top:68.359%;width:10.482%;height:11.914%}
+.portrait-canvas{position:absolute;--r:1.0727;--ch:min(93cqh,(90cqw - 24px) / (var(--r) * .92));bottom:0;left:max((100cqw - var(--ch) * var(--r)) * .62,10cqw + 24px);width:calc(var(--ch) * var(--r));height:var(--ch)}
+@container (max-width:640px){.portrait-canvas{--ch:min(85cqh,100cqw);left:calc(100cqw - 6px - var(--ch) * var(--r) * .717)}}
+.hero-watch{position:absolute;z-index:2;left:53.945%;top:69.156%;width:20.246%;height:16.083%}
+.hero-watch img{filter:contrast(1.08) saturate(.91) drop-shadow(0 2px 2.5px rgba(0,0,0,.42))}
 .hero-watch.is-gone{visibility:hidden}
 
 /* Hero handwriting: each word inks in left to right behind a pen nib, then a swoosh underlines the last word. */
@@ -195,7 +200,7 @@ body{font-family:Archivo,Arial,sans-serif}h1,h2,h3,.logo{font-family:Archivo,Ari
 .watch-face{position:absolute;inset:0;backface-visibility:hidden}
 .watch-face img{object-fit:contain}
 .watch-face.is-wrist{filter:contrast(1.08) saturate(.91) brightness(.9)}
-.watch-face.is-tilt,.watch-face.is-front{opacity:0}
+.watch-face.is-front{opacity:0}
 .watch-face.is-front{transform:rotateY(180deg)}
 .flight-noodle{position:fixed;z-index:10;inset:0;width:100%;height:100%;overflow:visible;visibility:hidden;pointer-events:none}
 .flight-noodle.is-on{visibility:visible}
