@@ -1209,9 +1209,11 @@ html[data-cap-away] .nav .signature-cap{visibility:hidden}
 @keyframes qr-pop{to{opacity:1;transform:scale(1)}}
 .wa-qr-logo{opacity:0;transform:scale(.4);transform-box:fill-box;transform-origin:center}
 .wa-qr.is-on .wa-qr-logo{animation:qr-pop .6s 1s cubic-bezier(.34,1.56,.64,1) forwards}
-.wa-qr-scan{position:absolute;left:5%;right:5%;top:6%;height:2px;border-radius:2px;background:#ff3444;box-shadow:0 0 12px 2px rgba(255,52,68,.75);opacity:0;pointer-events:none}
-.wa-qr.is-on .wa-qr-scan{animation:qr-scan 3.4s 1.5s ease-in-out infinite}
-@keyframes qr-scan{0%{top:6%;opacity:0}10%{opacity:1}48%{top:93%;opacity:1}56%{top:93%;opacity:0}100%{top:93%;opacity:0}}
+/* QR scan beam: screen-blended and clipped to the module area, so white modules stay pure white and only dark ones light up red; a phone can read the code on every frame. */
+.wa-qr-scan{position:absolute;inset:5.4%;overflow:hidden;mix-blend-mode:screen;pointer-events:none}
+.wa-qr-scan:before{content:"";position:absolute;left:0;right:0;top:0;height:24%;opacity:0;transform:translateY(-100%);background:linear-gradient(180deg,rgba(255,52,68,0),rgba(255,52,68,.2) 50%,rgba(255,52,68,.62) 86%,#ff3444 96%,rgba(255,52,68,0))}
+.wa-qr.is-on .wa-qr-scan:before{animation:qr-scan 3.4s 1.5s ease-in-out infinite}
+@keyframes qr-scan{0%{transform:translateY(-100%);opacity:1}46%{transform:translateY(317%);opacity:1}58%{transform:translateY(317%);opacity:0}100%{transform:translateY(317%);opacity:0}}
 .wa-qr-corners{position:absolute;inset:-12px;pointer-events:none;animation:qr-breathe 2.6s ease-in-out infinite}
 @keyframes qr-breathe{50%{transform:scale(1.035)}}
 .wa-qr-corners i{position:absolute;width:24px;height:24px;border:2.5px solid #ff3444}

@@ -9,7 +9,7 @@ import { LocalTime, WhatsAppGlyph, ease } from "./ui";
 import { qrLogo, qrRows, qrSize } from "./whatsapp-qr-data";
 
 /* Contact deck: spotlight cards for email, phone, Instagram and location around a WhatsApp card whose QR
-   assembles module by module, then gets swept by a scanner line. The QR is vector data, so it stays crisp
+   assembles module by module, then gets swept by a scanner beam. The QR is vector data, so it stays crisp
    and scannable at any size. */
 
 const rise: Variants = {
