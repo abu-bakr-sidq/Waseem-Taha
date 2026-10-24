@@ -1,0 +1,17 @@
+# Dependencies and build output
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+
+# The client's raw originals (~800 MB, some files over GitHub's 100 MB limit).
+# The site only uses the processed copies in public/.
+source/
+
+# Local, OS and download leftovers
+.env*.local
+.vercel
+.DS_Store
+Thumbs.db
+desktop.ini
+*.crdownload
