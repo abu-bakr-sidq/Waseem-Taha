@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: { default: "Waseem Taha — Brand & Creative Designer", template: "%s — Waseem Taha" },
   description: "Portfolio of Waseem Taha, a Brand & Creative Designer in Chennai: campaigns, social media, packaging, exhibition graphics and UX/UI case studies.",
-  metadataBase: new URL("https://waseem-taha-007.vercel.app"),
+  metadataBase: new URL("https://waseem-taha.vercel.app"),
   openGraph: {
     title: "Waseem Taha — Portfolio",
     description: "Case studies, visual systems, and digital experiences.",

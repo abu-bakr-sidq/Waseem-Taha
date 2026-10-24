@@ -43,6 +43,6 @@ source/                 The client's original files, untouched, grouped like the
 
 ## Deploying
 
-Live at [waseem-taha-007.vercel.app](https://waseem-taha-007.vercel.app). The GitHub repo `abu-bakr-sidq/Waseem-Taha` is connected to Vercel, so every push to `main` builds and deploys automatically. `vercel.json` pins the framework to Next.js: the Vercel project was created while the repo held only a README, so without it Vercel treats the site as a plain static folder and every page returns 404.
+Live at [waseem-taha.vercel.app](https://waseem-taha.vercel.app). The GitHub repo `abu-bakr-sidq/Waseem-Taha` is connected to Vercel, so every push to `main` builds and deploys automatically. `vercel.json` pins the framework to Next.js: the Vercel project was created while the repo held only a README, so without it Vercel treats the site as a plain static folder and every page returns 404.
 
 Contact links (email, phone, WhatsApp, Instagram) live in `contact` in `app/content.ts`. The WhatsApp QR in the contact section is drawn from `app/components/whatsapp-qr-data.ts`, generated for `https://wa.me/qr/BEWHMJVAY4V2H1`; regenerate it if that link changes.
