@@ -166,10 +166,10 @@ function UxSection() {
       <Reveal className="ux-card" delay={0.1}>
         <StoreShowcase />
         <div className="ux-card-copy">
-          <p className="ux-kicker"><span>Web</span>E-commerce · AI visuals</p>
-          <h3>WooCommerce store visuals</h3>
-          <p>Product banners and store visuals for the Dr Talat&apos;s WooCommerce store, generated with AI and finished by hand, so the whole range went live without a product photoshoot.</p>
-          <button type="button" className="button ux-woo-open" onClick={() => window.dispatchEvent(new CustomEvent("open-work", { detail: "woocommerce" }))}>See the AI visuals <ArrowUpRight size={16} /></button>
+          <p className="ux-kicker"><span>Web</span>E-commerce · Website banners</p>
+          <h3>WooCommerce website banners</h3>
+          <p>Website banners for the Dr Talat&apos;s WooCommerce store, with product and model imagery made through AI-assisted workflows and finished by hand, without relying entirely on traditional photoshoots.</p>
+          <button type="button" className="button ux-woo-open" onClick={() => window.dispatchEvent(new CustomEvent("open-work", { detail: "woocommerce" }))}>See the banners <ArrowUpRight size={16} /></button>
           <p className="ux-woo-label">Live sites</p>
           <div className="ux-woo-links"><a href="https://www.drtalats.com" target="_blank" rel="noopener noreferrer">drtalats.com <ArrowUpRight size={14} /></a><a href="https://www.sehatclinic.com" target="_blank" rel="noopener noreferrer">sehatclinic.com <ArrowUpRight size={14} /></a></div>
         </div>
@@ -192,7 +192,7 @@ function Career() {
     <div className="career-grid">
       <div className="career-side">
         <Headline>From agency desk to <em>creative lead.</em></Headline>
-        <Reveal delay={0.1}><p className="career-intro">Four years across <b>branding</b>, <b>social media</b>, <b>print</b> and <b>content-led creative</b>, owning projects from creative direction and content strategy through to final visual execution.</p></Reveal>
+        <Reveal delay={0.1}><p className="career-intro">4+ years across <b>branding</b>, <b>digital campaigns</b>, <b>social media</b>, <b>print</b> and <b>visual communication</b>, owning projects from creative direction and content strategy through to final visual execution.</p></Reveal>
         <Reveal delay={0.16} className="career-edu">
           <div className="career-block-head"><span className="career-block-icon" aria-hidden="true"><GraduationCap size={19} strokeWidth={1.8} /></span><h3>Education</h3><small>{education.length}</small></div>
           <ol className="career-edu-list">{education.map((item, index) => <motion.li key={item.title} initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.6 }} transition={{ delay: index * 0.07, duration: 0.5, ease }}>
@@ -260,7 +260,7 @@ function Contact() {
         <motion.p className="cta-status" initial={{ opacity: 0, y: -12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.8 }} transition={{ duration: 0.6, ease }}>Open to new roles<span>Chennai, India</span></motion.p>
         <motion.h2 variants={wordStagger} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }}>{words.map((word) => <Fragment key={word}><span className="cta-word"><motion.span variants={wordRise}>{word}</motion.span></span>{" "}</Fragment>)}<span className="cta-word"><motion.em variants={wordRise}>trust.</motion.em></span></motion.h2>
         <Reveal className="cta-lede" delay={0.2}>
-          <p>I&apos;m looking for my next role as a <b>Brand</b>, <b>Creative</b> or <b>Multidisciplinary Designer</b>, somewhere visual craft and UI/UX thinking work together.</p>
+          <p>I&apos;m looking for my next role as a <b>Brand</b> or <b>Creative Designer</b>, where strong visual design fundamentals and user-focused thinking work together.</p>
           <div className="actions"><a className="button" href={`mailto:${contact.email}`}><Mail size={16} /> Email Waseem <ArrowUpRight size={16} /></a><a className="button-ghost" href={contact.resume} download>Download résumé <Download size={15} /></a></div>
         </Reveal>
       </div>
@@ -293,7 +293,7 @@ export default function Home() {
       <Reveal className="hero-copy">
         <div className="hero-topline"><SectionLabel>Brand · Creative · UX / UI</SectionLabel><span>01 / 07</span></div>
         <KineticName />
-        <div className="hero-role"><strong>Brand &amp; Creative Designer</strong><span className="hero-role-tags"><span>Multidisciplinary</span><span>UI/UX knowledge</span></span></div>
+        <div className="hero-role"><strong>Brand &amp; Creative Designer</strong><span className="hero-role-tags"><span>Visual design</span><span>UI/UX</span><span>Digital experiences</span></span></div>
         <p className="lede">Building <b>brands</b>, <b>campaign creative</b>, and <b>digital experiences</b>&nbsp;— from a sharp initial idea through to a considered final execution.</p>
         <div className="actions"><a className="button" href="#work">View selected work <ArrowUpRight size={16} /></a><a className="play" href="#about"><CirclePlay size={34} /> See my approach</a></div>
         <div className="stats" aria-label="Experience highlights"><div><b>4+</b><span>Years<br />experience</span></div><div><b>{projectCount}</b><span>Selected<br />projects</span></div><div><b>BRAND<br />+ UX</b><span>Creative<br />practice</span></div></div>

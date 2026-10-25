@@ -167,7 +167,7 @@ export function AiBoard() {
         <h3>AI drafts.<br /><em>I direct.</em></h3>
       </motion.div>
       <motion.div initial={{ opacity: 0, y: 26 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.4 }} transition={{ delay: 0.1, duration: 0.7, ease }}>
-        <p>I use AI to move faster on research, ideas, scripts and visuals. For one WooCommerce store, AI-generated product visuals replaced the photoshoot entirely. The judgement, art direction and final polish stay mine.</p>
+        <p>I use AI to move faster on research, ideas, scripts and visuals. For one WooCommerce store, AI-assisted workflows created the product and model imagery without relying entirely on photoshoots. The judgement, art direction and final polish stay mine.</p>
         <ul className="ab-chips">{aiTools.map((tool) => <li key={tool.name} style={{ "--c": tool.color } as React.CSSProperties}>{tool.icon ? <Image src={tool.icon} alt="" width={20} height={20} /> : <b>{tool.name.slice(0, 2)}</b>}{tool.name}</li>)}</ul>
       </motion.div>
     </div>
@@ -197,7 +197,7 @@ export function AiBoard() {
                 return <Cursor key={name} name={name} color={tool?.color ?? "#111"} icon={tool && "icon" in tool ? tool.icon : undefined} visible={here} at={here ? { x: box.x + box.w * spread, y: box.y + box.h * (0.5 + k * 0.16) } : { x: 104, y: 40 + index * 10 + k * 6 }} />;
               }))}
               <Cursor name="Waseem" color="#ffd23f" visible={started && step >= 0} at={waseemAt} me />
-              <AnimatePresence>{final && <motion.div className="ab-sticker" style={{ left: `${layout.sticker.x}%`, top: `${layout.sticker.y}%` }} initial={{ opacity: 0, scale: 0.5, rotate: -20 }} animate={{ opacity: 1, scale: 1, rotate: -6 }} exit={{ opacity: 0, scale: 0.8 }} transition={{ type: "spring", stiffness: 260, damping: 18 }}><s>Product photoshoot</s><b>Not needed.</b><span>AI visuals for an entire WooCommerce store</span></motion.div>}</AnimatePresence>
+              <AnimatePresence>{final && <motion.div className="ab-sticker" style={{ left: `${layout.sticker.x}%`, top: `${layout.sticker.y}%` }} initial={{ opacity: 0, scale: 0.5, rotate: -20 }} animate={{ opacity: 1, scale: 1, rotate: -6 }} exit={{ opacity: 0, scale: 0.8 }} transition={{ type: "spring", stiffness: 260, damping: 18 }}><s>Photoshoots only</s><b>AI-assisted.</b><span>Website banners for a WooCommerce store</span></motion.div>}</AnimatePresence>
             </motion.div>
           </div>
         </div>

@@ -24,8 +24,19 @@ export function FigmaDock() {
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) setActive(entry.target.id); }), { rootMargin: "-45% 0px -50% 0px" });
     sections.forEach(({ id }) => { const element = document.getElementById(id); if (element) observer.observe(element); });
-    const onScroll = () => setVisible(window.scrollY > window.innerHeight * 0.6);
-    onScroll();
+    // On phones the dock steps aside while you scroll down, so it never sits on what you are reading, and comes back
+    // as soon as you scroll up or reach the end of the page.
+    const phone = window.matchMedia("(max-width: 760px)");
+    let lastY = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY, past = y > window.innerHeight * 0.6;
+      const atEnd = y + window.innerHeight >= document.documentElement.scrollHeight - 80;
+      // Measured from the last change, so slow drags add up instead of slipping under the threshold.
+      if (!phone.matches || !past || atEnd) { setVisible(past); lastY = y; }
+      else if (y > lastY + 12) { setVisible(false); lastY = y; }
+      else if (y < lastY - 12) { setVisible(true); lastY = y; }
+    };
+    setVisible(lastY > window.innerHeight * 0.6);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => { observer.disconnect(); window.removeEventListener("scroll", onScroll); };
   }, []);

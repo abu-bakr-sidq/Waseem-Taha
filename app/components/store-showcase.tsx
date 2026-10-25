@@ -75,10 +75,10 @@ export function StoreShowcase() {
           initial={{ opacity: 0, x: "14%", y: "-40%", scale: 0.78, rotate: 8 }} animate={slots[slot]}
           exit={{ opacity: 0, x: "-26%", y: "18%", rotate: -12, scale: 0.96, transition: { duration: 0.55, ease } }} transition={{ duration: 0.7, ease }}>
           <span className="woo-card-img"><Image src={visuals[index].src} alt="" fill sizes="(max-width: 760px) 70vw, 26vw" />{slot === 0 && <i className="woo-scan" />}</span>
-          <span className="woo-card-meta"><em>✦ AI visual</em>{visuals[index].name}</span>
+          <span className="woo-card-meta"><em>✦ Website banner</em>{visuals[index].name}</span>
         </motion.div>)}
       </AnimatePresence>
     </div>
-    <p className="woo-stamp"><s>Product photoshoot</s><b>Not needed</b></p>
+    <p className="woo-stamp"><s>Photoshoots only</s><b>AI-assisted</b></p>
   </div>;
 }

@@ -9,9 +9,9 @@ import { AboutWatchStage } from "./watch-flight";
 /* About: masked headline with a Figma text selection, a scroll-scrubbed bio and a labelled spec sheet,
    beside the product stage where the hero's watch lands. */
 
-const bio = "Waseem is a multidisciplinary Brand & Creative Designer with 4+ years across branding, social media, print, and content-led creative — now backed by UI/UX training.";
+const bio = "Waseem is a Brand & Creative Designer with 4+ years across branding, digital campaigns, social media, print and visual communication, now expanding into UI/UX with hands-on research and prototyping.";
 const keyWords = new Set(["Brand", "&", "Creative", "Designer", "4+", "years", "UI/UX"]);
-const disciplines = ["Brand design", "Campaign creative", "UI/UX knowledge"];
+const disciplines = ["Brand design", "Campaign creative", "UI/UX"];
 const steps = [
   { title: "Creative direction", text: "Concepts, copy and shoot scripts" },
   { title: "Content strategy", text: "Campaign plans and content calendars" },
